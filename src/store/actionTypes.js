@@ -1,0 +1,1 @@
+export const INIT_LIST_DATA = 'init_list_data';

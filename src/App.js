@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Layout } from 'antd';
+import store from './store';
+import routes from './routes';
+import SiderMenu from './components/SiderMenu';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  render() {
+    return (
+      <Provider store={store}>
+        <BrowserRouter>
+          <Layout style={{ minHeight: '100vh' }}>
+            <SiderMenu 
+              menuData={routes}
+            />
+            <Layout>
+              <Switch>
+                {routes.map((item) => {
+                  return(
+                    <Route exact path={item.path} component={item.component} key={item.path}></Route>
+                  )
+                })}
+              </Switch>
+            </Layout>
+          </Layout>
+        </BrowserRouter>
+      </Provider>
+    );
+  }
 }
 
 export default App;

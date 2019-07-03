@@ -1,0 +1,17 @@
+.list-header {
+    width: 100%;
+    font-size: 18px;
+    background-color: #fff;
+}
+
+.tableListForm {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+}
