@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Layout } from 'antd';
 import store from './store';
 import routes from './routes';
@@ -23,6 +23,7 @@ class App extends Component {
                     <Route exact path={item.path} component={item.component} key={item.path}></Route>
                   )
                 })}
+                <Redirect path="/" to={{pathname: '/list'}} />
               </Switch>
             </Layout>
           </Layout>
